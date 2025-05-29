@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar {
+            width: 150px;
+            background-color: orange;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 30px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            color: white;
+        }
+
+        .content {
+            margin-left: 220px;
+            width: calc(100% - 220px);
+        }
+
+        .title {
+            align-items: center;
+            padding: 8px;
+            background-color: whitesmoke;
+            color: orange;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: whitesmoke;
+            border-bottom: 1px solid orange;
+            color: orange;
+        }
+        .header div:last-child {
+            display: flex;
+            align-items: center;
+            gap: 10px; 
+        }
+
+        #checkout-button-container {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #checkout-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        #checkout-button:hover {
+            background-color: white;
+            color: orange;
+            border: 1px solid orange;
+        }
+        #cart-counter-badge {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .header select {
+            margin-right: 10px;
+            padding: 5px;
+        }
+        .header button {
+            padding: 8px 15px;
+            color: white;
+            background-color: orange;
+            border: none;
+        }
+
+        .food-category h3{
+            border-bottom: 1px solid black ;
+            margin: 5px 0;
+        }
+        .food-category {
+            margin-bottom: 20px;
+            padding-top: 10px;
+            margin-right: 20px;
+        }
+        .food-category h2 {
+            background-color: orange;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            border-radius: 5px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between; /* Ensures alignment between image, text, and actions */
+            align-items: center;
+            padding: 10px;
+            border: 1px solid orange;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .menu-item-action {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Spacing between quantity selector and Add to Cart button */
+            margin-left: auto; /* Pushes the action container to the right */
+        }
+        .menu-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        .menu-item-content h3 {
+            margin: 5px 0;
+        }
+
+         /* Adjust Add to Cart button */
+        .menu-item-action button {
+            padding: 5px 10px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .menu-item-action button:hover {
+            color: orange;
+            background-color: white;
+            border: 1px solid orange;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .quantity button {
+            padding: 5px 10px;
+            border: 1px solid orange;
+            background: white;
+            color: orange;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .quantity span {
+            border: 1px solid orange;
+            border-radius: 5px;
+            padding: 5px 10px;
+            text-align: center;
+        }
+
+    </style>
+    <script src="menu-script.js" defer></script>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#sup-zz">Sup ZZ</a>
+        <a href="#mee-rebus">Mee Rebus ZZ</a>
+        <a href="#sarapan">Sarapan</a>
+        <a href="#roti-canai">Roti Canai</a>
+        <a href="#set-tengah-hari">Set Tengah Hari</a>
+        <a href="#menu-ikan">Menu Ikan</a>
+        <a href="#ala-carte-menu">Ala-Carte Menu</a>
+        <a href="#western-food">Western Food</a>
+        <a href="#goreng-goreng">Goreng-goreng?</a>
+        <a href="#drinks">Drinks</a>
+    </div>
+    <div class="content">
+        <div class="title">
+            <h1>Restoran Sup Tulang ZZ</h1>
+            <p>since 1990's</p>
+        </div>
+        <div class="header">
+            <select>
+                <option value="pickup">Pick Up</option>
+                <option value="delivery">Delivery</option>
+                <option value="table">Walk-In Table</option>
+            </select>
+            <div>
+                <button>Login</button>
+            </div>
+            <div id="checkout-button-container">
+                <button id="checkout-button">Checkout</button>
+                <div id="cart-counter-badge">0</div>
+            </div>
+        </div>
+        <div id="sup-zz" class="food-category">
+            <h2>Sup ZZ</h2>
+            <div id="menu-items-container-sup-zz"></div>
+        </div>
+        <div id="mee-rebus" class="food-category">
+            <h2>Mee Rebus</h2>
+            <div id="menu-items-container-mee-rebus"></div>
+        </div>
+        <div id="sarapan" class="food-category">
+            <h2>Sarapan</h2>
+            <div id="menu-items-container-sarapan"></div>
+        </div>
+        <div id="makanan-panas" class="food-category">
+            <h3>Masakan Panas</h3>
+            <div id="menu-items-container-makanan-panas"></div>
+        </div>
+        <div id="roti-bakar" class="food-category">
+            <h3>Roti Bakar</h3>
+            <div id="menu-items-container-roti-bakar"></div>
+        </div>
+        <div id="roti-canai" class="food-category">
+            <h3>Roti Canai (Available: 7.00am - 11.00am/6.00pm - 11.00pm) </h3>
+            <div id="menu-items-container-roti-canai"></div>
+        </div>
+        <div id="set-tengah-hari" class="food-category">
+            <h2>Set Tengah Hari</h2>
+            <div id="menu-items-container-set-tengah-hari"></div>
+        </div>
+        <div id="set-nasi-lauk" class="food-category">
+            <h3>Set Nasi & Lauk</h3>
+            <div id="menu-items-container-set-nasi-lauk"></div>
+        </div>
+        <div id="makanan-panas-2" class="food-category">
+            <h3>Masakan Panas</h3>
+            <div id="menu-items-container-makanan-panas-2"></div>
+        </div>
+        <div id="menu-ikan" class="food-category">
+            <h2>Menu Ikan</h2>
+            <div id="menu-items-container-menu-ikan"></div>
+        </div>
+        <div id="ikan-siakap" class="food-category">
+            <h3>Ikan Siakap</h3>
+            <div id="menu-items-container-ikan-siakap"></div>
+        </div>
+        <div id="bakar-bakar" class="food-category">
+            <h3>Bakar-Bakar</h3>
+            <div id="menu-items-container-bakar-bakar"></div>
+        </div>
+        <div id="ala-carte-menu" class="food-category">
+            <h2>Ala-Carte Menu</h2>
+            <div id="menu-items-container-ala-carte-menu"></div>
+        </div>
+        <div id="sayur" class="food-category">
+            <h3>Sayur</h3>
+            <div id="menu-items-container-sayur"></div>
+        </div>
+        <div id="aneka-lauk-thai" class="food-category">
+            <h3>Aneka Lauk Thai</h3>
+            <div id="menu-items-container-aneka-lauk-thai"></div>
+        </div>
+        <div id="goreng-tepung" class="food-category">
+            <h3>Goreng Tepung</h3>
+            <div id="menu-items-container-goreng-tepung"></div>
+        </div>
+        <div id="sup-ala-thai" class="food-category">
+            <h3>Sup Ala Thai</h3>
+            <div id="menu-items-container-sup-ala-thai"></div>
+        </div>
+        <div id="tomyam" class="food-category">
+            <h3>Tomyam</h3>
+            <div id="menu-items-container-tomyam"></div>
+        </div>
+        <div id="mee-kuah" class="food-category">
+            <h3>Mee Kuah</h3>
+            <div id="menu-items-container-mee-kuah"></div>
+        </div>        
+        <div id="western-food" class="food-category">
+            <h2>Western Food</h2>
+            <div id="menu-items-container-western-food"></div>
+        </div>
+        <div id="fried-grill" class="food-category">
+            <h3>Fried & Grill</h3>
+            <div id="menu-items-container-fried-grill"></div>
+        </div>
+        <div id="spaghetti" class="food-category">
+            <h3>Spaghetti</h3>
+            <div id="menu-items-container-spaghetti"></div>
+        </div>
+        <div id="burger" class="food-category">
+            <h3>Burger</h3>
+            <div id="menu-items-container-burger"></div>
+        </div>
+        <div id="sides" class="food-category">
+            <h3>Sides</h3>
+            <div id="menu-items-container-sides"></div>
+        </div>
+        <div id="goreng-goreng" class="food-category">
+            <h2>Goreng-Goreng?</h2>
+            <div id="menu-items-container-goreng-goreng"></div>
+        </div>
+        <div id="nasi-goreng" class="food-category">
+            <h3>Nasi Goreng</h3>
+            <div id="menu-items-container-nasi-goreng"></div>
+        </div>
+        <div id="mee-goreng" class="food-category">
+            <h3>Mee Goreng</h3>
+            <div id="menu-items-container-mee-goreng"></div>
+        </div>
+        <div id="drinks" class="food-category">
+            <h2>Drinks</h2>
+            <div id="menu-items-container-drinks"></div>
+        </div>
+        <div id="non-coffee" class="food-category">
+            <h3>Non-Coffee</h3>
+            <div id="menu-items-container-non-coffee"></div>
+        </div>
+        <div id="jus" class="food-category">
+            <h3>Jus</h3>
+            <div id="menu-items-container-jus"></div>
+        </div>
+        <div id="cold-dessert" class="food-category">
+            <h3>Cold Dessert</h3>
+            <div id="menu-items-container-cold-dessert"></div>
+        </div>
+    </div>
+</body>
+</html>

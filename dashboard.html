@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiter's Dashboard</title>
+    <style>
+    
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff8e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .dashboard {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #d84315;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        button {
+            margin: 10px;
+            padding: 14px 20px;
+            font-size: 16px;
+            color: white;
+            background: #f44336;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #f33446;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+	    <h1>Sup Tulang ZZ</h1>
+        <h2>Welcome, <span id="USER_NAME"></span></h2>
+        <div class="buttons">
+            <button id="scanQR">Scan QR</button>
+            <button id="viewOrders">View & Manage Orders</button>
+            <button id="logout">Log Out</button>
+        </div>
+    </div>
+    <script>
+        // JavaScript for dynamic behavior
+        document.addEventListener("DOMContentLoaded", () => {
+            const waiterNameElement = document.querySelector("USER_NAME");
+            
+            // Simulated waiter's name (replace with PHP variable if necessary)
+            char waiterName = "USER_NAME"; // Example name, replace dynamically as needed
+            
+            waiterNameElement.textContent = waiterName || "Waiter";
+
+            // Button action handlers
+            document.getElementById("scanQR").addEventListener("click", () => {
+                alert("Scanning QR code...");
+                window.location.href = "scan_qr.php"; 
+            });
+
+            document.getElementById("viewOrders").addEventListener("click", () => {
+                alert("Redirecting to orders...");
+                window.location.href = "SMTP.php"; 
+            });
+
+            document.getElementById("logout").addEventListener("click", () => {
+                alert("Logging out...");
+                window.location.href = "login.php"; 
+            });
+        });
+    </script>
+</body>
+</html>
