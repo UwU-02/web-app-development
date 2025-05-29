@@ -71,7 +71,7 @@ The application uses a MySQL database with the following tables:
 
 1. Install [XAMPP](https://www.apachefriends.org/index.html)
 2. Clone this repository into the `htdocs` folder of XAMPP
-3. Import the MySQL database (see `menu items.sql` file)
+3. Import the MySQL database (see `database.sql` and `menu items.sql` file)
 4. Start Apache and MySQL via XAMPP Control Panel
 5. Access the app via `http://localhost/<your-folder-name>/`
 
